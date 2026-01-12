@@ -1,159 +1,109 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacı Berkay Buz | Portfolyo</title>
+    <title>Hacı Berkay Buz | Home Page</title>
     <style>
-        /* --- TASARIM (CSS) --- */
+        /* CSS STYLES - ACADEMIC MINIMALIST */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Modern mavi geçiş */
-            color: white;
-            width: 100%;
-            padding: 40px 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
-        .subtitle { opacity: 0.8; margin-top: 10px; font-weight: 300; }
-        
-        .container {
-            max-width: 900px;
-            width: 90%;
+            font-family: "Times New Roman", Times, serif;
+            max-width: 800px;
             margin: 40px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            line-height: 1.5;
+            padding: 0 20px;
+            color: #000;
         }
 
-        h2 { border-left: 5px solid #1e3c72; padding-left: 10px; color: #1e3c72; }
-        
-        /* Simülasyon Alanı */
-        #sim-canvas {
-            background: #000;
-            width: 100%;
-            height: 300px;
-            border-radius: 8px;
-            cursor: pointer;
+        h1, h2, h3 {
+            color: #000080;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
         }
-        .sim-note { font-size: 0.8rem; color: #666; text-align: center; margin-top: 5px; }
 
-        footer { margin-top: 50px; color: #888; font-size: 0.9rem; margin-bottom: 20px;}
+        a {
+            color: #0000FF;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        /* PHOTO SETTINGS */
+        img {
+            float: left;
+            margin-right: 25px;
+            border: 1px solid #ccc;
+            width: 300px; /* Fotoğraf genişliği */
+            padding: 4px; /* Çerçeve boşluğu */
+        }
+
+        .clear {
+            clear: both;
+        }
     </style>
 </head>
 <body>
 
-    <header onclick="gizliMesaj()"> <h1>ADINIZ SOYADINIZ</h1>
-        <div class="subtitle">Fizik | Yazılım | Teknoloji</div>
-    </header>
+    <img src="profil.jpg" alt="Photo of Hacı Berkay Buz">
 
-    <div class="container">
-        <h2>Hakkımda</h2>
-        <p>Merhaba, ben modern web teknolojileri ve bilimsel simülasyonlarla ilgilenen bir araştırmacıyım. Bu site, projelerimi ve deneylerimi sergilediğim kişisel alanımdır.</p>
+    <h1>Hacı Berkay Buz</h1>
 
-        <h2>Laboratuvar / Simülasyon</h2>
-        <p>Aşağıdaki alanda JavaScript ile çalışan gerçek zamanlı bir parçacık simülasyonu görmektesiniz. (Müdahale etmek için tıklayın)</p>
-        
-        <canvas id="sim-canvas"></canvas>
-        <div class="sim-note">Simülasyon durumu: <span id="durum">Aktif</span></div>
+    <p>
+        <strong>Undergraduate Student</strong><br>
+        Department of Physics<br>
+        Bilkent University<br>
+        Ankara, 06800 TURKEY
+    </p>
 
-        <h2>İletişim</h2>
-        <p>Bana <a href="mailto:mail@site.com" style="color:#1e3c72; font-weight:bold;">mail@site.com</a> adresinden ulaşabilirsiniz.</p>
-    </div>
+    <p>
+        <strong>E-mail:</strong> <a href="mailto:berkay.buz@ug.bilkent.edu.tr">berkay.buz@ug.bilkent.edu.tr</a><br>
+    </p>
 
-    <footer>
-        &copy; 2026 - Tüm Hakları Saklıdır.
-    </footer>
+    <div class="clear"></div> <br><hr><br>
 
-    <script>
-        // --- 1. EASTER EGG KISMI ---
-        let tiklamaSayisi = 0;
-        function gizliMesaj() {
-            tiklamaSayisi++;
-            if(tiklamaSayisi === 5) {
-                alert("🎉 TEBRİKLER! Gizli modu açtınız: Konami kodu gibi ama daha basiti.");
-                document.body.style.filter = "invert(1)"; // Site renklerini tersine çevirir
-            }
-        }
+    <h2>Biography</h2>
+    <p>
+        I am a Physics student at Bilkent University. I have a strong interest in experimental and computational physics. I enjoy combining hardware and software to solve problems.
+        Currently, I am working on student projects like simulating quantum systems and building optical setups (for example, a Michelson Interferometer). 
+        I use Python and MATLAB to create simulations and analyze my experimental results. 
+        I am always eager to learn new tools and improve my skills for my future career in research.
+    </p>
 
-        // --- 2. SİMÜLASYON KISMI (Basit Parçacık Fiziği) ---
-        const canvas = document.getElementById('sim-canvas');
-        const ctx = canvas.getContext('2d');
-        
-        // Canvas boyutunu ayarla
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
+    <h2>Projects & Research</h2>
+    <ul>
+        <li>
+            <strong>Loudspeaker Interferometry Project:</strong>
+            Analysis of sound vibrations using Michelson interferometer.
+            <a href="Michelson_Interferometer.pdf" target="_blank">[View Report]</a>
+        </li>
+        <li>
+            <strong>Visible Light Spectrometer Project:</strong>
+            Analysis of blackbody radiation and emission spectra of elements using a DIY spectrometer.
+            <a href="DIY_Spectrometer.pdf" target="_blank">[View Report]</a>
+        </li>
+        <li>
+            <strong>Numerical Solution of 2D Schrödinger Equation':</strong>
+            Numerical analysis of bound states in a finite circular potential
+            <a href="2DSchröd.html" target="_blank">[View Jupyter Notebook]</a>
+        </li>
+    </ul>
 
-        // Parçacıklar dizisi
-        let particles = [];
-        
-        class Particle {
-            constructor(x, y) {
-                this.x = x;
-                this.y = y;
-                this.vx = (Math.random() - 0.5) * 4; // Rastgele hız
-                this.vy = (Math.random() - 0.5) * 4;
-                this.size = Math.random() * 3 + 1;
-                this.color = `hsl(${Math.random() * 360}, 70%, 50%)`; // Rastgele renk
-            }
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
 
-                // Duvarlara çarpma kontrolü
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-            }
-            draw() {
-                ctx.fillStyle = this.color;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
+    <h2>Assistantships</h2>
+    <ul>
+        <li>Currently looking for opportunities.</li>
 
-        // 50 tane parçacık oluştur
-        for(let i=0; i<50; i++){
-            particles.push(new Particle(canvas.width/2, canvas.height/2));
-        }
+    </ul>
 
-        // Animasyon Döngüsü
-        function animate() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'; // Arkada iz bırakma efekti
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+    <h2>Links</h2>
+    <p>
+        <a href="https://github.com/HaciBerkayBuz" target="_blank">GitHub Profile</a>
 
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-            requestAnimationFrame(animate);
-        }
-        animate(); // Başlat
+    </p>
 
-        // Tıklayınca yeni parçacık ekle (İnteraktivite)
-        canvas.addEventListener('click', (e) => {
-            const rect = canvas.getBoundingClientRect();
-            for(let i=0; i<5; i++) {
-                particles.push(new Particle(e.clientX - rect.left, e.clientY - rect.top));
-            }
-        });
+    <br><br>
+    <small style="color:#666;">Last updated: January 2026</small>
 
-        // Klavye ile Easter Egg (F12 tuşuna basıp Console'a bakın)
-        console.log("%cMerhaba Meraklı Geliştirici!", "color: orange; font-size: 20px; font-weight: bold;");
-        console.log("Burada kodların arkasını kurcaladığını görüyorum :)");
-
-    </script>
 </body>
-
 </html>
