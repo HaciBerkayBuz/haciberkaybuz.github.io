@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adınız Soyadınız | Portfolyo</title>
+    <style>
+        /* --- TASARIM (CSS) --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Modern mavi geçiş */
+            color: white;
+            width: 100%;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
+        .subtitle { opacity: 0.8; margin-top: 10px; font-weight: 300; }
+        
+        .container {
+            max-width: 900px;
+            width: 90%;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        h2 { border-left: 5px solid #1e3c72; padding-left: 10px; color: #1e3c72; }
+        
+        /* Simülasyon Alanı */
+        #sim-canvas {
+            background: #000;
+            width: 100%;
+            height: 300px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .sim-note { font-size: 0.8rem; color: #666; text-align: center; margin-top: 5px; }
+
+        footer { margin-top: 50px; color: #888; font-size: 0.9rem; margin-bottom: 20px;}
+    </style>
+</head>
+<body>
+
+    <header onclick="gizliMesaj()"> <h1>ADINIZ SOYADINIZ</h1>
+        <div class="subtitle">Fizik | Yazılım | Teknoloji</div>
+    </header>
+
+    <div class="container">
+        <h2>Hakkımda</h2>
+        <p>Merhaba, ben modern web teknolojileri ve bilimsel simülasyonlarla ilgilenen bir araştırmacıyım. Bu site, projelerimi ve deneylerimi sergilediğim kişisel alanımdır.</p>
+
+        <h2>Laboratuvar / Simülasyon</h2>
+        <p>Aşağıdaki alanda JavaScript ile çalışan gerçek zamanlı bir parçacık simülasyonu görmektesiniz. (Müdahale etmek için tıklayın)</p>
+        
+        <canvas id="sim-canvas"></canvas>
+        <div class="sim-note">Simülasyon durumu: <span id="durum">Aktif</span></div>
+
+        <h2>İletişim</h2>
+        <p>Bana <a href="mailto:mail@site.com" style="color:#1e3c72; font-weight:bold;">mail@site.com</a> adresinden ulaşabilirsiniz.</p>
+    </div>
+
+    <footer>
+        &copy; 2026 - Tüm Hakları Saklıdır.
+    </footer>
+
+    <script>
+        // --- 1. EASTER EGG KISMI ---
+        let tiklamaSayisi = 0;
+        function gizliMesaj() {
+            tiklamaSayisi++;
+            if(tiklamaSayisi === 5) {
+                alert("🎉 TEBRİKLER! Gizli modu açtınız: Konami kodu gibi ama daha basiti.");
+                document.body.style.filter = "invert(1)"; // Site renklerini tersine çevirir
+            }
+        }
+
+        // --- 2. SİMÜLASYON KISMI (Basit Parçacık Fiziği) ---
+        const canvas = document.getElementById('sim-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Canvas boyutunu ayarla
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+
+        // Parçacıklar dizisi
+        let particles = [];
+        
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.vx = (Math.random() - 0.5) * 4; // Rastgele hız
+                this.vy = (Math.random() - 0.5) * 4;
+                this.size = Math.random() * 3 + 1;
+                this.color = `hsl(${Math.random() * 360}, 70%, 50%)`; // Rastgele renk
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Duvarlara çarpma kontrolü
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        // 50 tane parçacık oluştur
+        for(let i=0; i<50; i++){
+            particles.push(new Particle(canvas.width/2, canvas.height/2));
+        }
+
+        // Animasyon Döngüsü
+        function animate() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'; // Arkada iz bırakma efekti
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        animate(); // Başlat
+
+        // Tıklayınca yeni parçacık ekle (İnteraktivite)
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            for(let i=0; i<5; i++) {
+                particles.push(new Particle(e.clientX - rect.left, e.clientY - rect.top));
+            }
+        });
+
+        // Klavye ile Easter Egg (F12 tuşuna basıp Console'a bakın)
+        console.log("%cMerhaba Meraklı Geliştirici!", "color: orange; font-size: 20px; font-weight: bold;");
+        console.log("Burada kodların arkasını kurcaladığını görüyorum :)");
+
+    </script>
+</body>
+</html>
