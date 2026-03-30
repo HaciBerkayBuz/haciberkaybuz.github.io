@@ -2,35 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Name Meanings</title>
+    <title>Name Meanings | Hacı Berkay Buz</title>
     <style>
-        body { font-family: "Times New Roman", Times, serif; max-width: 600px; margin: 80px auto; line-height: 1.8; text-align: center; }
-        .box { padding: 40px; border: 1px solid #000080; box-shadow: 8px 8px 0px rgba(0, 0, 128, 0.05); }
-        h1 { color: #000080; margin-bottom: 20px; }
-        p { font-size: 1.2em; color: #333; }
-        .back { margin-top: 30px; display: block; color: #0000FF; text-decoration: none; }
+        body { font-family: "Times New Roman", Times, serif; max-width: 600px; margin: 100px auto; text-align: center; border: 1px solid #ccc; padding: 50px; box-shadow: 10px 10px 0px #000080; }
+        h1 { color: #000080; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid #ccc; padding-bottom: 10px; }
+        p { font-size: 1.25em; line-height: 1.6; color: #333; margin: 30px 0; }
+        .back { color: #0000FF; text-decoration: none; font-weight: bold; font-size: 0.9em; }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1 id="title">Name</h1>
-        <p id="desc">Loading...</p>
-        <a href="#" id="backBtn" class="back">← Back</a>
-    </div>
+    <h1 id="name-display">Name</h1>
+    <p id="meaning-display">Loading...</p>
+    <a href="index.html" id="back-link" class="back">← Return</a>
 
     <script>
-        const content = {
-            en: {
-                Haci: "A title reflecting spiritual heritage and respect. Historically, it denotes one who has completed a significant journey or pilgrimage, symbolizing wisdom and life experience.",
-                Berkay: "Meaning 'Strong Moon.' It combines 'Berk' (Solid, Strong, or Lightning) and 'Ay' (Moon), representing a resilient light in the darkness.",
-                Buz: "The Turkish word for 'Ice.' It signifies clarity, purity, and a solid, unyielding foundation—much like the crystalline structures studied in physics.",
-                back: "← Back to Home"
+        const data = {
+            "Haci": {
+                en: "A title of respect given to those who have completed a sacred pilgrimage. Culturally, it signifies a traveler who has gained deep wisdom and spiritual maturity through their life's journey.",
+                tr: "Kutsal bir yolculuğu (Hac) tamamlayanlara verilen saygı unvanıdır. Kültürel olarak, hayat yolculuğunda olgunluğa ve bilgeliğe erişmiş kişiyi simgeler."
             },
-            tr: {
-                Haci: "Manevi bir mirası ve saygınlığı temsil eden bir unvandır. Tarihsel olarak, önemli bir yolculuğu tamamlamış, bilgelik ve hayat tecrübesi kazanmış kişileri simgeler.",
-                Berkay: "‘Güçlü Ay’ anlamına gelir. ‘Berk’ (Sağlam, Güçlü) ve ‘Ay’ kelimelerinin birleşimiyle, karanlıkta parlayan dayanıklı bir ışığı temsil eder.",
-                Buz: "Saflığı, berraklığı ve sarsılmaz bir temeli simgeler. Fizikteki kristal yapılar gibi netlik ve düzeni çağrıştırır.",
-                back: "← Ana Sayfaya Dön"
+            "Berkay": {
+                en: "A Turkish name meaning 'Strong Moon'. It combines 'Berk' (strong, solid, or lightning) and 'Ay' (moon), representing a resilient light that shines through the darkness.",
+                tr: "‘Güçlü Ay’ veya ‘Sağlam Ay’ anlamına gelir. ‘Berk’ (sağlam, kuvvetli) ve ‘Ay’ kelimelerinin birleşimiyle, sarsılmaz ve dayanıklı bir ışığı temsil eder."
+            },
+            "Buz": {
+                en: "The Turkish word for 'Ice'. Symbolically, it represents clarity, purity, and a solid, crystalline foundation—much like the precise physical structures studied in materials science.",
+                tr: "Saflığı, berraklığı ve sarsılmaz bir temeli simgeler. Fizikteki kristal yapılar gibi netliği, şeffaflığı ve düzeni çağrıştırır."
             }
         };
 
@@ -38,15 +35,11 @@
         const name = params.get('name');
         const lang = params.get('lang') || 'en';
 
-        const title = document.getElementById('title');
-        const desc = document.getElementById('desc');
-        const backBtn = document.getElementById('backBtn');
-
-        if (name && content[lang][name]) {
-            title.innerText = name;
-            desc.innerText = content[lang][name];
-            backBtn.innerText = content[lang].back;
-            backBtn.href = lang === 'tr' ? 'index_tr.html' : 'index.html';
+        if (name && data[name]) {
+            document.getElementById('name-display').innerText = name;
+            document.getElementById('meaning-display').innerText = data[name][lang];
+            document.getElementById('back-link').innerText = lang === 'tr' ? '← Geri Dön' : '← Return';
+            document.getElementById('back-link').href = lang === 'tr' ? 'index_tr.html' : 'index.html';
         }
     </script>
 </body>
