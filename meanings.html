@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Name Meaning | Hacı Berkay Buz</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            max-width: 600px;
+            margin: 80px auto;
+            line-height: 1.6;
+            padding: 0 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #000080;
+            border-bottom: 1px solid #ccc;
+        }
+        .meaning-container {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            color: #0000FF;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="meaning-container">
+        <h1 id="nameTitle">Name</h1>
+        <p id="nameDefinition" style="font-size: 1.2em;">Loading definition...</p>
+    </div>
+
+    <a href="index.html" class="back-link">← Back to Home Page</a>
+
+    <script>
+        // Data for the name meanings
+        const data = {
+            "Haci": "A title given to a person who has successfully completed the Hajj (pilgrimage) to Mecca. In a broader cultural context, it often signifies respect and wisdom.",
+            "Berkay": "A Turkish name meaning 'Strong Moon'. It is composed of 'Berk' (strong, solid, lightning) and 'Ay' (moon).",
+            "Buz": "The Turkish word for 'Ice'. As a surname, it can represent clarity, coolness, or a solid, enduring foundation."
+        };
+
+        // Get the 'name' parameter from the URL (e.g., meanings.html?name=Berkay)
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedName = urlParams.get('name');
+
+        const titleElement = document.getElementById('nameTitle');
+        const definitionElement = document.getElementById('nameDefinition');
+
+        if (selectedName && data[selectedName]) {
+            titleElement.innerText = selectedName;
+            definitionElement.innerText = data[selectedName];
+            document.title = "Meaning of " + selectedName + " | Hacı Berkay Buz";
+        } else {
+            titleElement.innerText = "Information Not Found";
+            definitionElement.innerText = "Please return to the home page and click on a specific name.";
+        }
+    </script>
+
+</body>
+</html>
