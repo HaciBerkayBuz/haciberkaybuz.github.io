@@ -13,17 +13,18 @@
             padding: 50px; 
             box-shadow: 12px 12px 0px #000080; 
             background-color: #fff;
+            line-height: 1.8;
         }
         h1 { color: #000080; text-transform: uppercase; letter-spacing: 3px; border-bottom: 2px solid #000080; padding-bottom: 15px; }
-        p { font-size: 1.2em; line-height: 1.8; color: #333; margin: 30px 0; text-align: justify; }
-        .back { color: #0000FF; text-decoration: none; font-weight: bold; font-size: 0.9em; border: 1px solid #0000FF; padding: 10px 20px; transition: 0.3s; }
+        p { font-size: 1.2em; color: #333; margin: 30px 0; text-align: justify; }
+        .back { color: #0000FF; text-decoration: none; font-weight: bold; font-size: 0.9em; border: 1px solid #0000FF; padding: 10px 20px; transition: 0.3s; display: inline-block; }
         .back:hover { background: #0000FF; color: #fff; }
     </style>
 </head>
 <body>
-    <h1 id="name-display">İsim</h1>
-    <p id="meaning-display">Yükleniyor...</p>
-    <a href="index.html" id="back-link" class="back">← GERİ DÖN / RETURN</a>
+    <h1 id="name-display">Name</h1>
+    <p id="meaning-display">Loading...</p>
+    <a href="index.html" id="back-link" class="back">← RETURN</a>
 
     <script>
         const data = {
@@ -32,15 +33,16 @@
                 tr: "Kutsal bir yolculuğu tamamlayanlara verilen unvanın ötesinde 'Hacı', Türk kültüründe dostane, samimi ve saygı dolu bir hitap şekli olarak kullanılır. Hayat yolculuğunda olgunlaşmış, tecrübe kazanmış ve çevresinde bilgelik sembolü haline gelmiş kişileri temsil eder."
             },
             "Berkay": {
-                en: "A powerful combination of 'Berk' (strong, solid, or lightning) and 'Ay' (moon). It symbolizes a resilient and unyielding light that shines brightly even in the darkest times. In a broader sense, it represents the harmony between destructive energy (lightning) and serene guidance (moon).",
-                tr: "‘Berk’ (sağlam, güçlü, şimşek) ve ‘Ay’ kelimelerinin güçlü birleşimidir. Sarsılmaz, dayanıklı ve en karanlık zamanlarda bile yol gösteren duru bir ışığı temsil eder. Mecazi olarak, şimşeğin enerjisi ile ayın dingin rehberliği arasındaki kusursuz dengeyi simgeler."
+                en: "A powerful combination of 'Berk' (strong, solid, or lightning) and 'Ay' (moon). It symbolizes a resilient and unyielding light that shines brightly even in the darkest times. It represents the harmony between energetic power and serene guidance.",
+                tr: "‘Berk’ (sağlam, güçlü, şimşek) ve ‘Ay’ kelimelerinin birleşimidir. Sarsılmaz, dayanıklı ve en karanlık zamanlarda bile yol gösteren duru bir ışığı temsil eder. Şimşeğin enerjisi ile ayın dingin rehberliği arasındaki dengeyi simgeler."
             },
             "Buz": {
-                en: "Symbolizes absolute clarity, purity, and a solid foundation. In the context of physics, it evokes the order and precision of crystalline structures and phase transitions. It represents a personality that is transparent, disciplined, and maintains a fixed, stable core under pressure.",
-                tr: "Tam berraklığı, saflığı ve sarsılmaz bir temeli simgeler. Fiziksel bir bağlamda, kristal örgü yapılarının düzenini ve faz değişimlerinin hassasiyetini çağrıştırır. Şeffaf, disiplinli ve dış etkenlere karşı kendi sağlam yapısını koruyan bir karakteri temsil eder."
+                en: "Symbolizes absolute clarity, purity, and a solid foundation. In the context of physics, it evokes the order and precision of crystalline structures. It represents a personality that is transparent, disciplined, and stable under pressure.",
+                tr: "Tam berraklığı, saflığı ve sarsılmaz bir temeli simgeler. Fiziksel bir bağlamda, kristal örgü yapılarının düzenini çağrıştırır. Şeffaf, disiplinli ve dış etkenlere karşı kendi sağlam yapısını koruyan bir karakteri temsil eder."
             }
         };
 
+        // This part reads the URL parameters (e.g., ?name=Haci&lang=en)
         const params = new URLSearchParams(window.location.search);
         const name = params.get('name');
         const lang = params.get('lang') || 'en';
@@ -57,6 +59,9 @@
                 backLink.innerText = "← BACK TO HOME";
                 backLink.href = "index.html";
             }
+        } else {
+            document.getElementById('name-display').innerText = "Not Found";
+            document.getElementById('meaning-display').innerText = "Please return to the home page and click on a name.";
         }
     </script>
 </body>
