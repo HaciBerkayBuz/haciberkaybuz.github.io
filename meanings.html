@@ -4,30 +4,40 @@
     <meta charset="UTF-8">
     <title>Name Meanings | Hacı Berkay Buz</title>
     <style>
-        body { font-family: "Times New Roman", Times, serif; max-width: 600px; margin: 100px auto; text-align: center; border: 1px solid #ccc; padding: 50px; box-shadow: 10px 10px 0px #000080; }
-        h1 { color: #000080; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid #ccc; padding-bottom: 10px; }
-        p { font-size: 1.25em; line-height: 1.6; color: #333; margin: 30px 0; }
-        .back { color: #0000FF; text-decoration: none; font-weight: bold; font-size: 0.9em; }
+        body { 
+            font-family: "Times New Roman", Times, serif; 
+            max-width: 700px; 
+            margin: 80px auto; 
+            text-align: center; 
+            border: 1px solid #ccc; 
+            padding: 50px; 
+            box-shadow: 12px 12px 0px #000080; 
+            background-color: #fff;
+        }
+        h1 { color: #000080; text-transform: uppercase; letter-spacing: 3px; border-bottom: 2px solid #000080; padding-bottom: 15px; }
+        p { font-size: 1.2em; line-height: 1.8; color: #333; margin: 30px 0; text-align: justify; }
+        .back { color: #0000FF; text-decoration: none; font-weight: bold; font-size: 0.9em; border: 1px solid #0000FF; padding: 10px 20px; transition: 0.3s; }
+        .back:hover { background: #0000FF; color: #fff; }
     </style>
 </head>
 <body>
-    <h1 id="name-display">Name</h1>
-    <p id="meaning-display">Loading...</p>
-    <a href="index.html" id="back-link" class="back">← Return</a>
+    <h1 id="name-display">İsim</h1>
+    <p id="meaning-display">Yükleniyor...</p>
+    <a href="index.html" id="back-link" class="back">← GERİ DÖN / RETURN</a>
 
     <script>
         const data = {
             "Haci": {
-                en: "A title of respect given to those who have completed a sacred pilgrimage. Culturally, it signifies a traveler who has gained deep wisdom and spiritual maturity through their life's journey.",
-                tr: "Kutsal bir yolculuğu (Hac) tamamlayanlara verilen saygı unvanıdır. Kültürel olarak, hayat yolculuğunda olgunluğa ve bilgeliğe erişmiş kişiyi simgeler."
+                en: "Beyond its formal title for a pilgrim, 'Hacı' is a warm and respectful term of address in Turkish culture, often used to signify camaraderie and wisdom. It represents a person who has completed a significant journey, gaining maturity and a broader perspective on life.",
+                tr: "Kutsal bir yolculuğu tamamlayanlara verilen unvanın ötesinde 'Hacı', Türk kültüründe dostane, samimi ve saygı dolu bir hitap şekli olarak kullanılır. Hayat yolculuğunda olgunlaşmış, tecrübe kazanmış ve çevresinde bilgelik sembolü haline gelmiş kişileri temsil eder."
             },
             "Berkay": {
-                en: "A Turkish name meaning 'Strong Moon'. It combines 'Berk' (strong, solid, or lightning) and 'Ay' (moon), representing a resilient light that shines through the darkness.",
-                tr: "‘Güçlü Ay’ veya ‘Sağlam Ay’ anlamına gelir. ‘Berk’ (sağlam, kuvvetli) ve ‘Ay’ kelimelerinin birleşimiyle, sarsılmaz ve dayanıklı bir ışığı temsil eder."
+                en: "A powerful combination of 'Berk' (strong, solid, or lightning) and 'Ay' (moon). It symbolizes a resilient and unyielding light that shines brightly even in the darkest times. In a broader sense, it represents the harmony between destructive energy (lightning) and serene guidance (moon).",
+                tr: "‘Berk’ (sağlam, güçlü, şimşek) ve ‘Ay’ kelimelerinin güçlü birleşimidir. Sarsılmaz, dayanıklı ve en karanlık zamanlarda bile yol gösteren duru bir ışığı temsil eder. Mecazi olarak, şimşeğin enerjisi ile ayın dingin rehberliği arasındaki kusursuz dengeyi simgeler."
             },
             "Buz": {
-                en: "The Turkish word for 'Ice'. Symbolically, it represents clarity, purity, and a solid, crystalline foundation—much like the precise physical structures studied in materials science.",
-                tr: "Saflığı, berraklığı ve sarsılmaz bir temeli simgeler. Fizikteki kristal yapılar gibi netliği, şeffaflığı ve düzeni çağrıştırır."
+                en: "Symbolizes absolute clarity, purity, and a solid foundation. In the context of physics, it evokes the order and precision of crystalline structures and phase transitions. It represents a personality that is transparent, disciplined, and maintains a fixed, stable core under pressure.",
+                tr: "Tam berraklığı, saflığı ve sarsılmaz bir temeli simgeler. Fiziksel bir bağlamda, kristal örgü yapılarının düzenini ve faz değişimlerinin hassasiyetini çağrıştırır. Şeffaf, disiplinli ve dış etkenlere karşı kendi sağlam yapısını koruyan bir karakteri temsil eder."
             }
         };
 
@@ -38,8 +48,15 @@
         if (name && data[name]) {
             document.getElementById('name-display').innerText = name;
             document.getElementById('meaning-display').innerText = data[name][lang];
-            document.getElementById('back-link').innerText = lang === 'tr' ? '← Geri Dön' : '← Return';
-            document.getElementById('back-link').href = lang === 'tr' ? 'index_tr.html' : 'index.html';
+            
+            const backLink = document.getElementById('back-link');
+            if (lang === 'tr') {
+                backLink.innerText = "← ANA SAYFAYA DÖN";
+                backLink.href = "index_tr.html";
+            } else {
+                backLink.innerText = "← BACK TO HOME";
+                backLink.href = "index.html";
+            }
         }
     </script>
 </body>
