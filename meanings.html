@@ -2,70 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Name Meaning | Hacı Berkay Buz</title>
+    <title>Name Meanings</title>
     <style>
-        body {
-            font-family: "Times New Roman", Times, serif;
-            max-width: 600px;
-            margin: 80px auto;
-            line-height: 1.6;
-            padding: 0 20px;
-            text-align: center;
-        }
-        h1 {
-            color: #000080;
-            border-bottom: 1px solid #ccc;
-        }
-        .meaning-container {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-        }
-        .back-link {
-            display: inline-block;
-            margin-top: 40px;
-            color: #0000FF;
-            text-decoration: none;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
+        body { font-family: "Times New Roman", Times, serif; max-width: 600px; margin: 80px auto; line-height: 1.8; text-align: center; }
+        .box { padding: 40px; border: 1px solid #000080; box-shadow: 8px 8px 0px rgba(0, 0, 128, 0.05); }
+        h1 { color: #000080; margin-bottom: 20px; }
+        p { font-size: 1.2em; color: #333; }
+        .back { margin-top: 30px; display: block; color: #0000FF; text-decoration: none; }
     </style>
 </head>
 <body>
-
-    <div class="meaning-container">
-        <h1 id="nameTitle">Name</h1>
-        <p id="nameDefinition" style="font-size: 1.2em;">Loading definition...</p>
+    <div class="box">
+        <h1 id="title">Name</h1>
+        <p id="desc">Loading...</p>
+        <a href="#" id="backBtn" class="back">← Back</a>
     </div>
 
-    <a href="index.html" class="back-link">← Back to Home Page</a>
-
     <script>
-        // Data for the name meanings
-        const data = {
-            "Haci": "A title given to a person who has successfully completed the Hajj (pilgrimage) to Mecca. In a broader cultural context, it often signifies respect and wisdom.",
-            "Berkay": "A Turkish name meaning 'Strong Moon'. It is composed of 'Berk' (strong, solid, lightning) and 'Ay' (moon).",
-            "Buz": "The Turkish word for 'Ice'. As a surname, it can represent clarity, coolness, or a solid, enduring foundation."
+        const content = {
+            en: {
+                Haci: "A title reflecting spiritual heritage and respect. Historically, it denotes one who has completed a significant journey or pilgrimage, symbolizing wisdom and life experience.",
+                Berkay: "Meaning 'Strong Moon.' It combines 'Berk' (Solid, Strong, or Lightning) and 'Ay' (Moon), representing a resilient light in the darkness.",
+                Buz: "The Turkish word for 'Ice.' It signifies clarity, purity, and a solid, unyielding foundation—much like the crystalline structures studied in physics.",
+                back: "← Back to Home"
+            },
+            tr: {
+                Haci: "Manevi bir mirası ve saygınlığı temsil eden bir unvandır. Tarihsel olarak, önemli bir yolculuğu tamamlamış, bilgelik ve hayat tecrübesi kazanmış kişileri simgeler.",
+                Berkay: "‘Güçlü Ay’ anlamına gelir. ‘Berk’ (Sağlam, Güçlü) ve ‘Ay’ kelimelerinin birleşimiyle, karanlıkta parlayan dayanıklı bir ışığı temsil eder.",
+                Buz: "Saflığı, berraklığı ve sarsılmaz bir temeli simgeler. Fizikteki kristal yapılar gibi netlik ve düzeni çağrıştırır.",
+                back: "← Ana Sayfaya Dön"
+            }
         };
 
-        // Get the 'name' parameter from the URL (e.g., meanings.html?name=Berkay)
-        const urlParams = new URLSearchParams(window.location.search);
-        const selectedName = urlParams.get('name');
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name');
+        const lang = params.get('lang') || 'en';
 
-        const titleElement = document.getElementById('nameTitle');
-        const definitionElement = document.getElementById('nameDefinition');
+        const title = document.getElementById('title');
+        const desc = document.getElementById('desc');
+        const backBtn = document.getElementById('backBtn');
 
-        if (selectedName && data[selectedName]) {
-            titleElement.innerText = selectedName;
-            definitionElement.innerText = data[selectedName];
-            document.title = "Meaning of " + selectedName + " | Hacı Berkay Buz";
-        } else {
-            titleElement.innerText = "Information Not Found";
-            definitionElement.innerText = "Please return to the home page and click on a specific name.";
+        if (name && content[lang][name]) {
+            title.innerText = name;
+            desc.innerText = content[lang][name];
+            backBtn.innerText = content[lang].back;
+            backBtn.href = lang === 'tr' ? 'index_tr.html' : 'index.html';
         }
     </script>
-
 </body>
 </html>
