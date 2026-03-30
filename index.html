@@ -6,43 +6,62 @@
     <style>
         body {
             font-family: "Times New Roman", Times, serif;
-            max-width: 800px;
-            margin: 40px auto;
-            line-height: 1.5;
-            padding: 0 20px 80px 20px;
-            color: #000;
+            max-width: 850px; /* Slightly wider for better layout */
+            margin: 50px auto;
+            line-height: 1.6;
+            padding: 0 40px 100px 40px;
+            color: #1a1a1a;
+            background-color: #fff;
         }
 
-        h1, h2, h3 {
+        /* TYPOGRAPHY */
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 5px;
+            color: #000080;
+            border-bottom: 2px solid #000080;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.4em;
             color: #000080;
             border-bottom: 1px solid #ccc;
             padding-bottom: 5px;
+            margin-top: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p, li {
+            font-size: 1.1em;
+            margin-bottom: 15px;
         }
 
         /* MODERN LANGUAGE TOGGLE */
         .lang-container {
             display: flex;
             justify-content: flex-end;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .lang-toggle {
             display: inline-flex;
-            background: #f0f0f0;
+            background: #f4f4f4;
             border-radius: 20px;
-            padding: 4px;
+            padding: 3px;
             border: 1px solid #ddd;
             font-family: Arial, sans-serif;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
         }
 
         .lang-toggle a {
-            padding: 5px 15px;
-            border-radius: 16px;
+            padding: 6px 16px;
+            border-radius: 15px;
             text-decoration: none;
-            color: #666;
-            transition: all 0.3s ease;
+            color: #555;
+            transition: 0.2s ease;
         }
 
         .lang-toggle a.active {
@@ -50,11 +69,7 @@
             color: #fff;
         }
 
-        .lang-toggle a:hover:not(.active) {
-            background: #e0e0e0;
-        }
-
-        /* Name parts */
+        /* NAME LINKS */
         .name-part {
             color: #000080;
             text-decoration: none;
@@ -64,46 +79,62 @@
             text-decoration: underline;
         }
 
+        /* GLOBAL LINK STYLE */
         a { color: #0000FF; text-decoration: none; }
         a:hover { text-decoration: underline; }
 
+        /* PROFILE IMAGE */
         img.profile {
             float: left;
-            margin-right: 25px;
+            margin: 0 30px 20px 0;
             border: 1px solid #ccc;
-            width: 300px;
-            padding: 4px;
+            width: 280px;
+            padding: 5px;
+            background: #fff;
         }
 
         .clear { clear: both; }
 
-        /* Project list specific styling */
+        /* PROJECTS LIST - No dots, better spacing */
+        ul.project-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
         ul.project-list li {
-            margin-bottom: 10px;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .view-link {
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-left: 5px;
         }
 
         /* VISITOR COUNTER - BOTTOM RIGHT */
         #visitor-container {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 25px;
+            right: 25px;
             background: #fff;
             border: 1px solid #000080;
-            padding: 8px 12px;
+            padding: 10px 15px;
             font-size: 10px;
             font-family: Arial, sans-serif;
-            box-shadow: 4px 4px 0px rgba(0,0,128,0.1);
+            box-shadow: 5px 5px 0px rgba(0,0,128,0.1);
             z-index: 1000;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
         
         #visitor-container span {
             color: #000080;
             font-weight: bold;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
         }
     </style>
@@ -125,47 +156,44 @@
         <a href="meaning.html?name=Buz&lang=en" class="name-part">Buz</a>
     </h1>
 
-    <p>
+    <p style="margin-top: 10px;">
         <strong>Undergraduate Student</strong><br>
-        Department of Physics<br>
-        Bilkent University<br>
+        Department of Physics, Bilkent University<br>
         Ankara, 06800 TURKEY
     </p>
 
     <p>
-    <strong>E-mail:</strong>
-    <script type="text/javascript">
-        var user = "berkay.buz";
-        var domain = "ug.bilkent.edu.tr";
-        document.write('<a href="mailto:' + user + '@' + domain + '">' + user + '@' + domain + '</a>');
-    </script>
+        <strong>E-mail:</strong>
+        <script type="text/javascript">
+            var user = "berkay.buz";
+            var domain = "ug.bilkent.edu.tr";
+            document.write('<a href="mailto:' + user + '@' + domain + '">' + user + '@' + domain + '</a>');
+        </script>
     </p>
 
-    <div class="clear"></div> <br><hr><br>
+    <div class="clear"></div> <br><hr style="border: 0; border-top: 1px solid #ccc;"><br>
 
     <h2>Biography</h2>
     <p>
-        I am a Physics student at Bilkent University. I have a strong interest in experimental and computational physics. I enjoy combining hardware and software to solve problems.
-        Currently, I am working on student projects like simulating quantum systems and building optical setups.
-        I use Python and MATLAB to create simulations and analyze my experimental results.
+        I am a Physics student at Bilkent University. I have a strong interest in experimental and computational physics. I enjoy combining hardware and software to solve problems. Currently, I am working on student projects like simulating quantum systems and building optical setups. I use Python and MATLAB to create simulations and analyze my experimental results.
     </p>
 
     <h2>Projects & Research</h2>
     <ul class="project-list">
         <li>
-            <a href="Michelson_Interferometer.pdf" target="_blank"><strong>Loudspeaker Interferometry:</strong></a> 
+            <strong>Loudspeaker Interferometry:</strong> 
             Analysis of sound vibrations using Michelson interferometer. 
-            <a href="Michelson_Interferometer.pdf" target="_blank" style="font-size: 0.85em;">[View Report]</a>
+            <a href="Michelson_Interferometer.pdf" target="_blank" class="view-link">[View Report]</a>
         </li>
         <li>
-            <a href="DIY_Spectrometer.pdf" target="_blank"><strong>Visible Light Spectrometer:</strong></a> 
+            <strong>Visible Light Spectrometer:</strong> 
             Analysis of emission spectra using a DIY spectrometer. 
-            <a href="DIY_Spectrometer.pdf" target="_blank" style="font-size: 0.85em;">[View Report]</a>
+            <a href="DIY_Spectrometer.pdf" target="_blank" class="view-link">[View Report]</a>
         </li>
         <li>
-            <a href="2DSchröd.html" target="_blank"><strong>Numerical Schrödinger:</strong></a> 
+            <strong>Numerical Schrödinger:</strong> 
             Analysis of bound states in circular potentials. 
-            <a href="2DSchröd.html" target="_blank" style="font-size: 0.85em;">[View Notebook]</a>
+            <a href="2DSchröd.html" target="_blank" class="view-link">[View Notebook]</a>
         </li>
     </ul>
 
@@ -178,7 +206,7 @@
     </div>
 
     <br><br>
-    <small style="color:#666;">Last updated: March 30, 2026</small>
+    <small style="color:#888;">Last updated: March 30, 2026</small>
 
 </body>
 </html>
