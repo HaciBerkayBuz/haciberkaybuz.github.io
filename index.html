@@ -4,93 +4,39 @@
     <meta charset="UTF-8">
     <title>Hacı Berkay Buz | Home Page</title>
     <style>
-        body {
-            font-family: "Times New Roman", Times, serif;
-            max-width: 800px;
-            margin: 40px auto;
-            line-height: 1.5;
-            padding: 0 20px 80px 20px; /* Added bottom padding for the badge */
-            color: #000;
-        }
+        body { font-family: "Times New Roman", Times, serif; max-width: 800px; margin: 40px auto; line-height: 1.5; padding: 0 20px 80px 20px; color: #000; }
+        h1, h2, h3 { color: #000080; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+        .name-link { color: #000080; text-decoration: none; }
+        .name-link:hover { color: #0000FF; text-decoration: underline; }
+        a { color: #0000FF; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        img.profile { float: left; margin-right: 25px; border: 1px solid #ccc; width: 300px; padding: 4px; }
+        .clear { clear: both; }
 
-        h1, h2, h3 {
-            color: #000080;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 5px;
-        }
+        /* Language Toggle */
+        .lang-toggle { text-align: right; margin-bottom: 10px; font-size: 0.9em; }
+        .lang-toggle a { font-weight: bold; padding: 2px 8px; border: 1px solid #ccc; margin-left: 5px; }
 
-        /* Name links - minimalist and clean */
-        .name-link {
-            color: #000080;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .name-link:hover {
-            color: #0000FF;
-            text-decoration: underline;
-        }
-
-        a {
-            color: #0000FF;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        img.profile {
-            float: left;
-            margin-right: 25px;
-            border: 1px solid #ccc;
-            width: 300px;
-            padding: 4px;
-        }
-
-        .clear {
-            clear: both;
-        }
-
-        /* AESTHETIC VISITOR BADGE */
-        .visitor-badge {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: #fff;
-            border: 1px solid #000080;
-            padding: 6px 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 11px;
-            font-family: Arial, sans-serif; /* Clean sans-serif for UI elements */
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 3px 3px 0px rgba(0, 0, 128, 0.1);
-            z-index: 1000;
-        }
-
-        .visitor-badge img {
-            filter: grayscale(1) contrast(1.2); /* Makes the counter look more professional */
-            border: none;
-            padding: 0;
-            margin: 0;
-            height: 16px;
-        }
+        /* Aesthetic Visitor Badge */
+        .visitor-badge { position: fixed; bottom: 20px; left: 20px; background: #fff; border: 1px solid #000080; padding: 8px 15px; display: flex; align-items: center; gap: 10px; font-size: 11px; font-family: Arial, sans-serif; box-shadow: 4px 4px 0px rgba(0, 0, 128, 0.1); z-index: 1000; }
     </style>
 </head>
 <body>
 
+    <div class="lang-toggle">
+        <a href="index_tr.html">TR</a>
+        <a href="index.html" style="background:#000080; color:#fff;">EN</a>
+    </div>
+
     <div class="visitor-badge">
-        <span>Visitors</span>
-        <img src="https://hitwebcounter.com/counter/counter.php?page=haciberkaybuz_2026&style=0007&nbdigits=5&type=page&initCount=0" title="Free Counter" Alt="web counter">
+        <span>VISITORS</span>
+        <img src="https://counter.admantium.com/api/counter?key=haciberkaybuz_2026&color=000080" alt="counter">
     </div>
 
     <img src="profil.jpg" alt="Photo of Hacı Berkay Buz" class="profile">
 
     <h1>
-        <a href="meanings.html?name=Haci" class="name-link">Hacı</a> 
+        <a href="meanings.html?name=Haci&lang=en" class="name-link">Hacı</a> 
         <a href="meanings.html?name=Berkay" class="name-link">Berkay</a> 
         <a href="meanings.html?name=Buz" class="name-link">Buz</a>
     </h1>
@@ -99,59 +45,36 @@
         <strong>Undergraduate Student</strong><br>
         Department of Physics<br>
         Bilkent University<br>
-        Ankara, 06800 TURKEY
+        Ankara, TURKEY
     </p>
 
     <p>
-    <strong>E-mail:</strong>
-    <script type="text/javascript">
-        var user = "berkay.buz";
-        var domain = "ug.bilkent.edu.tr";
-        document.write('<a href="mailto:' + user + '@' + domain + '">' + user + '@' + domain + '</a>');
-    </script>
+        <strong>E-mail:</strong>
+        <script>
+            var user = "berkay.buz"; var domain = "ug.bilkent.edu.tr";
+            document.write('<a href="mailto:' + user + '@' + domain + '">' + user + '@' + domain + '</a>');
+        </script>
     </p>
 
-    <div class="clear"></div> <br><hr><br>
+    <div class="clear"></div><br><hr><br>
 
     <h2>Biography</h2>
     <p>
-        I am a Physics student at Bilkent University. I have a strong interest in experimental and computational physics. I enjoy combining hardware and software to solve problems.
-        Currently, I am working on student projects like simulating quantum systems and building optical setups (for example, a Michelson Interferometer). 
-        I use Python and MATLAB to create simulations and analyze my experimental results. 
-        I am always eager to learn new tools and improve my skills for my future career in research.
+        I am a Physics student at Bilkent University with a strong interest in experimental and computational physics. 
+        I enjoy bridging the gap between hardware and software to solve complex problems. 
+        My current work focuses on quantum system simulations and optical setups.
     </p>
 
-    <h2>Projects & Research</h2>
+    <h2>Projects</h2>
     <ul>
-        <li>
-            <strong>Loudspeaker Interferometry Project:</strong>
-            Analysis of sound vibrations using Michelson interferometer.
-            <a href="Michelson_Interferometer.pdf" target="_blank">[View Report]</a>
-        </li>
-        <li>
-            <strong>Visible Light Spectrometer Project:</strong>
-            Analysis of blackbody radiation and emission spectra of elements using a DIY spectrometer.
-            <a href="DIY_Spectrometer.pdf" target="_blank">[View Report]</a>
-        </li>
-        <li>
-            <strong>Numerical Solution of 2D Schrödinger Equation:</strong>
-            Numerical analysis of bound states in a finite circular potential
-            <a href="2DSchröd.html" target="_blank">[View Jupyter Notebook]</a>
-        </li>
+        <li><strong>Loudspeaker Interferometry:</strong> Analyzing sound via Michelson interferometer.</li>
+        <li><strong>DIY Spectrometer:</strong> Blackbody radiation analysis.</li>
+        <li><strong>2D Schrödinger Equation:</strong> Numerical analysis of bound states.</li>
     </ul>
 
-    <h2>Assistantships</h2>
-    <ul>
-        <li>Currently looking for opportunities.</li>
-    </ul>
-
-    <h2>Links</h2>
-    <p>
-        <a href="https://github.com/HaciBerkayBuz" target="_blank">GitHub Profile</a>
-    </p>
+    <p><a href="https://github.com/HaciBerkayBuz">GitHub Profile</a></p>
 
     <br><br>
-    <small style="color:#666;">Last updated: March 30, 2026</small>
-
+    <small style="color:#666;">Last updated: March 2026</small>
 </body>
 </html>
