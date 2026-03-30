@@ -4,77 +4,164 @@
     <meta charset="UTF-8">
     <title>Hacı Berkay Buz | Home Page</title>
     <style>
-        body { font-family: "Times New Roman", Times, serif; max-width: 800px; margin: 40px auto; line-height: 1.5; padding: 0 20px 80px 20px; color: #000; }
-        h1, h2, h3 { color: #000080; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
-        .name-link { color: #000080; text-decoration: none; }
-        .name-link:hover { color: #0000FF; text-decoration: underline; }
+        body {
+            font-family: "Times New Roman", Times, serif;
+            max-width: 800px;
+            margin: 40px auto;
+            line-height: 1.5;
+            padding: 0 20px 80px 20px;
+            color: #000;
+        }
+
+        h1, h2, h3 {
+            color: #000080;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        /* MODERN LANGUAGE TOGGLE */
+        .lang-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .lang-toggle {
+            display: inline-flex;
+            background: #f0f0f0;
+            border-radius: 20px;
+            padding: 4px;
+            border: 1px solid #ddd;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .lang-toggle a {
+            padding: 5px 15px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle a.active {
+            background: #000080;
+            color: #fff;
+        }
+
+        .lang-toggle a:hover:not(.active) {
+            background: #e0e0e0;
+        }
+
+        /* Name parts */
+        .name-part {
+            color: #000080;
+            text-decoration: none;
+        }
+        .name-part:hover {
+            color: #0000FF;
+            text-decoration: underline;
+        }
+
         a { color: #0000FF; text-decoration: none; }
         a:hover { text-decoration: underline; }
-        img.profile { float: left; margin-right: 25px; border: 1px solid #ccc; width: 300px; padding: 4px; }
+
+        img.profile {
+            float: left;
+            margin-right: 25px;
+            border: 1px solid #ccc;
+            width: 300px;
+            padding: 4px;
+        }
+
         .clear { clear: both; }
 
-        /* Language Toggle */
-        .lang-toggle { text-align: right; margin-bottom: 10px; font-size: 0.9em; }
-        .lang-toggle a { font-weight: bold; padding: 2px 8px; border: 1px solid #ccc; margin-left: 5px; }
-
-        /* Aesthetic Visitor Badge */
-        .visitor-badge { position: fixed; bottom: 20px; left: 20px; background: #fff; border: 1px solid #000080; padding: 8px 15px; display: flex; align-items: center; gap: 10px; font-size: 11px; font-family: Arial, sans-serif; box-shadow: 4px 4px 0px rgba(0, 0, 128, 0.1); z-index: 1000; }
+        /* VISITOR COUNTER - BOTTOM RIGHT */
+        #visitor-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #fff;
+            border: 1px solid #000080;
+            padding: 8px 12px;
+            font-size: 10px;
+            font-family: Arial, sans-serif;
+            box-shadow: 4px 4px 0px rgba(0,0,128,0.1);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        #visitor-container span {
+            color: #000080;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body>
 
-    <div class="lang-toggle">
-        <a href="index_tr.html">TR</a>
-        <a href="index.html" style="background:#000080; color:#fff;">EN</a>
-    </div>
-
-    <div class="visitor-badge">
-        <span>VISITORS</span>
-        <img src="https://counter.admantium.com/api/counter?key=haciberkaybuz_2026&color=000080" alt="counter">
+    <div class="lang-container">
+        <div class="lang-toggle">
+            <a href="index_tr.html">TR</a>
+            <a href="index.html" class="active">EN</a>
+        </div>
     </div>
 
     <img src="profil.jpg" alt="Photo of Hacı Berkay Buz" class="profile">
 
     <h1>
-        <a href="meanings.html?name=Haci&lang=en" class="name-link">Hacı</a> 
-        <a href="meanings.html?name=Berkay" class="name-link">Berkay</a> 
-        <a href="meanings.html?name=Buz" class="name-link">Buz</a>
+        <a href="meaning.html?name=Haci&lang=en" class="name-part">Hacı</a> 
+        <a href="meaning.html?name=Berkay&lang=en" class="name-part">Berkay</a> 
+        <a href="meaning.html?name=Buz&lang=en" class="name-part">Buz</a>
     </h1>
 
     <p>
         <strong>Undergraduate Student</strong><br>
         Department of Physics<br>
         Bilkent University<br>
-        Ankara, TURKEY
+        Ankara, 06800 TURKEY
     </p>
 
     <p>
-        <strong>E-mail:</strong>
-        <script>
-            var user = "berkay.buz"; var domain = "ug.bilkent.edu.tr";
-            document.write('<a href="mailto:' + user + '@' + domain + '">' + user + '@' + domain + '</a>');
-        </script>
+    <strong>E-mail:</strong>
+    <script type="text/javascript">
+        var user = "berkay.buz";
+        var domain = "ug.bilkent.edu.tr";
+        document.write('<a href="mailto:' + user + '@' + domain + '">' + user + '@' + domain + '</a>');
+    </script>
     </p>
 
-    <div class="clear"></div><br><hr><br>
+    <div class="clear"></div> <br><hr><br>
 
     <h2>Biography</h2>
     <p>
-        I am a Physics student at Bilkent University with a strong interest in experimental and computational physics. 
-        I enjoy bridging the gap between hardware and software to solve complex problems. 
-        My current work focuses on quantum system simulations and optical setups.
+        I am a Physics student at Bilkent University. I have a strong interest in experimental and computational physics. I enjoy combining hardware and software to solve problems.
+        Currently, I am working on student projects like simulating quantum systems and building optical setups.
+        I use Python and MATLAB to create simulations and analyze my experimental results.
     </p>
 
-    <h2>Projects</h2>
+    <h2>Projects & Research</h2>
     <ul>
-        <li><strong>Loudspeaker Interferometry:</strong> Analyzing sound via Michelson interferometer.</li>
-        <li><strong>DIY Spectrometer:</strong> Blackbody radiation analysis.</li>
-        <li><strong>2D Schrödinger Equation:</strong> Numerical analysis of bound states.</li>
+        <li><strong>Loudspeaker Interferometry:</strong> Analysis of sound vibrations using Michelson interferometer.</li>
+        <li><strong>Visible Light Spectrometer:</strong> Analysis of emission spectra using a DIY spectrometer.</li>
+        <li><strong>Numerical Schrödinger:</strong> Analysis of bound states in circular potentials.</li>
     </ul>
 
-    <p><a href="https://github.com/HaciBerkayBuz">GitHub Profile</a></p>
+    <h2>Links</h2>
+    <p><a href="https://github.com/HaciBerkayBuz" target="_blank">GitHub Profile</a></p>
+
+    <div id="visitor-container">
+        <span>Visitors</span>
+        <img src="https://hitwebcounter.com/counter/counter.php?page=haciberkay_2026&style=0007&nbdigits=5&type=page&initCount=0" title="Free Counter" Alt="web counter" border="0" style="filter: contrast(1.1);">
+    </div>
 
     <br><br>
-    <small style="color:#666;">Last updated: March 2026</small>
+    <small style="color:#666;">Last updated: March 30, 2026</small>
+
 </body>
 </html>
