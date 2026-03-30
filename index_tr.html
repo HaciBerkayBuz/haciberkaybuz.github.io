@@ -4,63 +4,79 @@
     <meta charset="UTF-8">
     <title>Hacı Berkay Buz | Ana Sayfa</title>
     <style>
-        /* (Same CSS as index.html) */
-        body { font-family: "Times New Roman", Times, serif; max-width: 800px; margin: 40px auto; line-height: 1.5; padding: 0 20px 80px 20px; color: #000; }
-        h1, h2, h3 { color: #000080; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
-        .name-link { color: #000080; text-decoration: none; }
-        .name-link:hover { color: #0000FF; text-decoration: underline; }
+        /* (Insert the same CSS from index.html here) */
+        body { font-family: "Times New Roman", Times, serif; max-width: 850px; margin: 50px auto; line-height: 1.6; padding: 0 40px 100px 40px; color: #1a1a1a; background-color: #fff; }
+        h1 { font-size: 2.2em; margin-bottom: 5px; color: #000080; border-bottom: 2px solid #000080; padding-bottom: 10px; }
+        h2 { font-size: 1.3em; color: #000080; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 40px; text-transform: uppercase; letter-spacing: 1px; }
+        p, li { font-size: 1.15em; margin-bottom: 15px; }
+        .lang-container { display: flex; justify-content: flex-end; margin-bottom: 30px; }
+        .lang-toggle { display: inline-flex; background: #f4f4f4; border-radius: 20px; padding: 3px; border: 1px solid #ddd; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; }
+        .lang-toggle a { padding: 6px 16px; border-radius: 15px; text-decoration: none; color: #555; transition: 0.2s; }
+        .lang-toggle a.active { background: #000080; color: #fff; }
+        .name-part { color: #000080; text-decoration: none; }
+        .name-part:hover { color: #0000FF; text-decoration: underline; }
         a { color: #0000FF; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        img.profile { float: left; margin-right: 25px; border: 1px solid #ccc; width: 300px; padding: 4px; }
+        img.profile { float: left; margin: 0 30px 20px 0; border: 1px solid #ccc; width: 280px; padding: 5px; background: #fff; }
         .clear { clear: both; }
-        .lang-toggle { text-align: right; margin-bottom: 10px; font-size: 0.9em; }
-        .lang-toggle a { font-weight: bold; padding: 2px 8px; border: 1px solid #ccc; margin-left: 5px; }
-        .visitor-badge { position: fixed; bottom: 20px; left: 20px; background: #fff; border: 1px solid #000080; padding: 8px 15px; display: flex; align-items: center; gap: 10px; font-size: 11px; font-family: Arial, sans-serif; box-shadow: 4px 4px 0px rgba(0, 0, 128, 0.1); z-index: 1000; }
+        ul.project-list { list-style-type: none; padding-left: 0; }
+        ul.project-list li { margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px dashed #eee; }
+        .view-link { font-size: 0.9em; font-weight: bold; margin-left: 8px; }
+        #visitor-container { position: fixed; bottom: 25px; right: 25px; background: #fff; border: 1px solid #000080; padding: 10px 15px; font-size: 10px; font-family: Arial, sans-serif; box-shadow: 5px 5px 0px rgba(0,0,128,0.1); z-index: 1000; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+        #visitor-container span { color: #000080; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; }
     </style>
 </head>
 <body>
 
-    <div class="lang-toggle">
-        <a href="index_tr.html" style="background:#000080; color:#fff;">TR</a>
-        <a href="index.html">EN</a>
+    <div class="lang-container">
+        <div class="lang-toggle">
+            <a href="index_tr.html" class="active">TR</a>
+            <a href="index.html">EN</a>
+        </div>
     </div>
 
-    <div class="visitor-badge">
-        <span>ZİYARETÇİ</span>
-        <img src="https://counter.admantium.com/api/counter?key=haciberkaybuz_2026&color=000080" alt="counter">
-    </div>
-
-    <img src="profil.jpg" alt="Hacı Berkay Buz Fotoğrafı" class="profile">
+    <img src="profil.jpg" alt="Hacı Berkay Buz" class="profile">
 
     <h1>
-        <a href="meanings.html?name=Haci&lang=tr" class="name-link">Hacı</a> 
-        <a href="meanings.html?name=Berkay&lang=tr" class="name-link">Berkay</a> 
-        <a href="meanings.html?name=Buz&lang=tr" class="name-link">Buz</a>
+        <a href="meaning.html?name=Haci&lang=tr" class="name-part">Hacı</a> 
+        <a href="meaning.html?name=Berkay&lang=tr" class="name-part">Berkay</a> 
+        <a href="meaning.html?name=Buz&lang=tr" class="name-part">Buz</a>
     </h1>
 
-    <p>
+    <p style="margin-top: 10px;">
         <strong>Lisans Öğrencisi</strong><br>
-        Fizik Bölümü<br>
-        Bilkent Üniversitesi<br>
+        Fizik Bölümü, Bilkent Üniversitesi<br>
         Ankara, TÜRKİYE
     </p>
 
     <p><strong>E-posta:</strong> berkay.buz [at] ug.bilkent.edu.tr</p>
 
-    <div class="clear"></div><br><hr><br>
+    <div class="clear"></div> <br><hr style="border: 0; border-top: 1px solid #ccc;"><br>
 
     <h2>Biyografi</h2>
     <p>
-        Bilkent Üniversitesi Fizik bölümü öğrencisiyim. Deneysel ve hesaplamalı fizik alanlarına yoğun bir ilgim var. Karmaşık problemleri çözmek için donanım ve yazılımı birleştirmeyi seviyorum.
+        Bilkent Üniversitesi Fizik Bölümü öğrencisiyim. Deneysel ve hesaplamalı fizik alanlarına yoğun ilgim var. Problemleri çözmek için donanım ve yazılımı birleştirmekten keyif alıyorum. Şu anda kuantum sistemleri simülasyonu ve optik düzenekler üzerine öğrenci projeleri yürütüyorum.
     </p>
 
-    <h2>Projeler</h2>
-    <ul>
-        <li><strong>Hoparlör İnterferometrisi:</strong> Michelson interferometresi ile ses analizi.</li>
-        <li><strong>Spektrometre Projesi:</strong> Kara cisim ışıması analizi.</li>
+    <h2>Projeler & Araştırma</h2>
+    <ul class="project-list">
+        <li>
+            <strong>Hoparlör İnterferometrisi:</strong> 
+            Michelson interferometresi kullanarak ses titreşimlerinin analizi. 
+            <a href="Michelson_Interferometer.pdf" target="_blank" class="view-link">[Raporu Görüntüle]</a>
+        </li>
+        <li>
+            <strong>Görünür Işık Spektrometresi:</strong> 
+            Ev yapımı bir spektrometre ile emisyon spektrumlarının analizi. 
+            <a href="DIY_Spectrometer.pdf" target="_blank" class="view-link">[Raporu Görüntüle]</a>
+        </li>
     </ul>
 
+    <div id="visitor-container">
+        <span>Ziyaretçi</span>
+        <img src="https://hitwebcounter.com/counter/counter.php?page=haciberkay_2026&style=0007&nbdigits=5&type=page&initCount=0" border="0" style="filter: contrast(1.1);">
+    </div>
+
     <br><br>
-    <small style="color:#666;">Son güncelleme: Mart 2026</small>
+    <small style="color:#888;">Son güncelleme: Mart 2026</small>
 </body>
 </html>
