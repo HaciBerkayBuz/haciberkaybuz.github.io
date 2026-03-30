@@ -27,29 +27,36 @@
     <a href="index.html" id="back-link" class="back">← RETURN</a>
 
     <script>
+        // Data keys are lowercase to ensure matching works perfectly
         const data = {
-            "Haci": {
+            "haci": {
+                display: "Hacı",
                 en: "Beyond its formal title for a pilgrim, 'Hacı' is a warm and respectful term of address in Turkish culture, often used to signify camaraderie and wisdom. It represents a person who has completed a significant journey, gaining maturity and a broader perspective on life.",
                 tr: "Kutsal bir yolculuğu tamamlayanlara verilen unvanın ötesinde 'Hacı', Türk kültüründe dostane, samimi ve saygı dolu bir hitap şekli olarak kullanılır. Hayat yolculuğunda olgunlaşmış, tecrübe kazanmış ve çevresinde bilgelik sembolü haline gelmiş kişileri temsil eder."
             },
-            "Berkay": {
+            "berkay": {
+                display: "Berkay",
                 en: "A powerful combination of 'Berk' (strong, solid, or lightning) and 'Ay' (moon). It symbolizes a resilient and unyielding light that shines brightly even in the darkest times. It represents the harmony between energetic power and serene guidance.",
                 tr: "‘Berk’ (sağlam, güçlü, şimşek) ve ‘Ay’ kelimelerinin birleşimidir. Sarsılmaz, dayanıklı ve en karanlık zamanlarda bile yol gösteren duru bir ışığı temsil eder. Şimşeğin enerjisi ile ayın dingin rehberliği arasındaki dengeyi simgeler."
             },
-            "Buz": {
+            "buz": {
+                display: "Buz",
                 en: "Symbolizes absolute clarity, purity, and a solid foundation. In the context of physics, it evokes the order and precision of crystalline structures. It represents a personality that is transparent, disciplined, and stable under pressure.",
                 tr: "Tam berraklığı, saflığı ve sarsılmaz bir temeli simgeler. Fiziksel bir bağlamda, kristal örgü yapılarının düzenini çağrıştırır. Şeffaf, disiplinli ve dış etkenlere karşı kendi sağlam yapısını koruyan bir karakteri temsil eder."
             }
         };
 
-        // This part reads the URL parameters (e.g., ?name=Haci&lang=en)
         const params = new URLSearchParams(window.location.search);
-        const name = params.get('name');
+        const rawName = params.get('name');
         const lang = params.get('lang') || 'en';
 
-        if (name && data[name]) {
-            document.getElementById('name-display').innerText = name;
-            document.getElementById('meaning-display').innerText = data[name][lang];
+        // Normalize the name for lookup (lowercase)
+        const lookupKey = rawName ? rawName.toLowerCase() : "";
+
+        if (lookupKey && data[lookupKey]) {
+            const entry = data[lookupKey];
+            document.getElementById('name-display').innerText = entry.display;
+            document.getElementById('meaning-display').innerText = entry[lang];
             
             const backLink = document.getElementById('back-link');
             if (lang === 'tr') {
