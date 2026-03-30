@@ -50,8 +50,8 @@
         const rawName = params.get('name');
         const lang = params.get('lang') || 'en';
 
-        // Normalize the name for lookup (lowercase)
-        const lookupKey = rawName ? rawName.toLowerCase() : "";
+        // Normalize the name: lowercase it and replace Turkish 'ı' with 'i' to prevent matching errors
+        const lookupKey = rawName ? rawName.toLowerCase().replace(/ı/g, 'i') : "";
 
         if (lookupKey && data[lookupKey]) {
             const entry = data[lookupKey];
