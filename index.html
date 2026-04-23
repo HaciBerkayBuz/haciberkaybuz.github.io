@@ -96,11 +96,12 @@
         }
         #visitor-container span { color: #000080; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; }
         
-        /* Varsayılan olarak Türkçe metinleri gizle */
-        .lang-tr { display: none; }
+        /* ÇÖZÜM BURADA: Body class'ına göre hangi dilin gizleneceğini seçiyoruz */
+        body.lang-en-active .lang-tr { display: none; }
+        body.lang-tr-active .lang-en { display: none; }
     </style>
 </head>
-<body>
+<body class="lang-en-active">
 
     <div class="lang-container">
         <div class="lang-toggle">
@@ -200,21 +201,15 @@
 
     <script>
         function switchLang(lang) {
-            // İlgili dile ait class'ları göster, diğerini gizle
-            let enElements = document.querySelectorAll('.lang-en');
-            let trElements = document.querySelectorAll('.lang-tr');
-
+            // Sadece body etiketindeki class'ı değiştiriyoruz, CSS gerisini hallediyor!
             if (lang === 'tr') {
-                enElements.forEach(el => el.style.display = 'none');
-                // Span veya a gibi inline elementlerin yapısını bozmamak için boş string '' kullanıyoruz
-                trElements.forEach(el => el.style.display = ''); 
+                document.body.className = 'lang-tr-active';
                 
                 document.getElementById('btn-tr').classList.add('active');
                 document.getElementById('btn-en').classList.remove('active');
                 document.documentElement.lang = 'tr';
             } else {
-                trElements.forEach(el => el.style.display = 'none');
-                enElements.forEach(el => el.style.display = '');
+                document.body.className = 'lang-en-active';
                 
                 document.getElementById('btn-en').classList.add('active');
                 document.getElementById('btn-tr').classList.remove('active');
