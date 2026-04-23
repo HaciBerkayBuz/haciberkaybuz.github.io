@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Photo Archive | Hacı Berkay Buz</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            max-width: 850px;
+            margin: 50px auto;
+            line-height: 1.6;
+            padding: 0 40px 100px 40px;
+            color: #1a1a1a;
+            background-color: #fff;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 5px;
+            color: #000080;
+            border-bottom: 2px solid #000080;
+            padding-bottom: 10px;
+        }
+
+        p, li { font-size: 1.15em; margin-bottom: 15px; }
+
+        .lang-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; margin-top: 20px;}
+        
+        .back-link {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #000080;
+            text-decoration: none;
+        }
+        .back-link:hover { color: #0000FF; text-decoration: underline; }
+
+        .lang-toggle {
+            display: inline-flex;
+            background: #f4f4f4;
+            border-radius: 20px;
+            padding: 3px;
+            border: 1px solid #ddd;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        .lang-toggle button { 
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px 16px; 
+            border-radius: 15px; 
+            color: #555; 
+            transition: 0.2s; 
+            font-weight: bold;
+        }
+        .lang-toggle button.active { background: #000080; color: #fff; }
+
+        /* Fotoğraf Arşivi Özel Stilleri */
+        .archive-container {
+            margin-top: 30px;
+        }
+
+        details {
+            margin-bottom: 20px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 15px;
+        }
+
+        summary {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #000080;
+            cursor: pointer;
+            list-style: none; /* Bazı tarayıcılardaki varsayılan oku gizler */
+            padding: 5px 0;
+            transition: color 0.2s;
+        }
+        
+        summary::-webkit-details-marker {
+            display: none; /* Chrome/Safari için oku gizler */
+        }
+
+        summary::before {
+            content: "► ";
+            font-size: 0.8em;
+            color: #888;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        details[open] summary::before {
+            transform: rotate(90deg);
+            color: #000080;
+        }
+
+        summary:hover {
+            color: #0000FF;
+        }
+
+        .photo-container {
+            margin-top: 15px;
+            text-align: center;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .photo-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            padding: 5px;
+            background: #fff;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .photo-description {
+            margin-top: 12px;
+            font-size: 1.05em;
+            color: #444;
+            font-style: italic;
+        }
+
+        #visitor-container {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #fff;
+            border: 1px solid #000080;
+            padding: 10px 15px;
+            font-size: 10px;
+            font-family: Arial, sans-serif;
+            box-shadow: 5px 5px 0px rgba(0,0,128,0.1);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        #visitor-container span { color: #000080; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; }
+        
+        /* Dil Gizleme Mantığı */
+        body.lang-en-active .lang-tr { display: none; }
+        body.lang-tr-active .lang-en { display: none; }
+    </style>
+</head>
+<body class="lang-en-active">
+
+    <div class="lang-container">
+        <div>
+            <a href="index.html" class="back-link lang-en">← Back to Home Page</a>
+            <a href="index.html" class="back-link lang-tr">← Ana Sayfaya Dön</a>
+        </div>
+        <div class="lang-toggle">
+            <button onclick="switchLang('tr')" id="btn-tr">TR</button>
+            <button onclick="switchLang('en')" id="btn-en" class="active">EN</button>
+        </div>
+    </div>
+
+    <h1 class="lang-en">Photo Archive</h1>
+    <h1 class="lang-tr">Fotoğraf Arşivi</h1>
+
+    <div class="archive-container">
+
+        <details>
+            <summary>
+                <span class="lang-en">Michelson Interferometer Setup (Spring 2026)</span>
+                <span class="lang-tr">Michelson İnterferometresi Düzenegi (İlkbahar 2026)</span>
+            </summary>
+            <div class="photo-container">
+                <img src="interferometer_setup.jpg" alt="Michelson Interferometer in Lab">
+                <div class="photo-description">
+                    <span class="lang-en">Calibrating the optical components for the loudspeaker vibration analysis experiment at the Bilkent physics lab.</span>
+                    <span class="lang-tr">Bilkent fizik laboratuvarında hoparlör titreşim analizi deneyi için optik bileşenlerin kalibrasyonu.</span>
+                </div>
+            </div>
+        </details>
+
+        <details>
+            <summary>
+                <span class="lang-en">Hiking Trail Exploration</span>
+                <span class="lang-tr">Doğa Yürüyüşü Keşfi</span>
+            </summary>
+            <div class="photo-container">
+                <img src="hiking.jpg" alt="Hiking in Nature">
+                <div class="photo-description">
+                    <span class="lang-en">Testing out the compact camera's dynamic range during a weekend hike.</span>
+                    <span class="lang-tr">Hafta sonu doğa yürüyüşü sırasında kompakt kameranın dinamik aralığını test ederken.</span>
+                </div>
+            </div>
+        </details>
+
+        <details>
+            <summary>
+                <span class="lang-en">Bilkent Campus View</span>
+                <span class="lang-tr">Bilkent Kampüs Manzarası</span>
+            </summary>
+            <div class="photo-container">
+                <img src="campus.jpg" alt="Bilkent University Campus">
+                <div class="photo-description">
+                    <span class="lang-en">A quiet afternoon view from the Physics Department building.</span>
+                    <span class="lang-tr">Fizik Bölümü binasından sakin bir öğleden sonra manzarası.</span>
+                </div>
+            </div>
+        </details>
+
+    </div>
+
+    <div id="visitor-container">
+        <span class="lang-en">Visitors</span>
+        <span class="lang-tr">Ziyaretçiler</span>
+        <img src="https://api.visitorbadge.io/api/visitors?path=haciberkaybuz.github.io/photos&labelColor=%23ffffff&countColor=%23000080&style=flat-square&labelStyle=none" alt="Visitor Count" border="0">
+    </div>
+
+    <script>
+        function switchLang(lang) {
+            if (lang === 'tr') {
+                document.body.className = 'lang-tr-active';
+                document.getElementById('btn-tr').classList.add('active');
+                document.getElementById('btn-en').classList.remove('active');
+                document.documentElement.lang = 'tr';
+            } else {
+                document.body.className = 'lang-en-active';
+                document.getElementById('btn-en').classList.add('active');
+                document.getElementById('btn-tr').classList.remove('active');
+                document.documentElement.lang = 'en';
+            }
+        }
+    </script>
+</body>
+</html>
