@@ -72,13 +72,13 @@
             font-weight: bold;
             color: #000080;
             cursor: pointer;
-            list-style: none; /* Bazı tarayıcılardaki varsayılan oku gizler */
+            list-style: none;
             padding: 5px 0;
             transition: color 0.2s;
         }
         
         summary::-webkit-details-marker {
-            display: none; /* Chrome/Safari için oku gizler */
+            display: none;
         }
 
         summary::before {
@@ -121,24 +121,6 @@
             color: #444;
             font-style: italic;
         }
-
-        #visitor-container {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: #fff;
-            border: 1px solid #000080;
-            padding: 10px 15px;
-            font-size: 10px;
-            font-family: Arial, sans-serif;
-            box-shadow: 5px 5px 0px rgba(0,0,128,0.1);
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-        #visitor-container span { color: #000080; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; }
         
         /* Dil Gizleme Mantığı */
         body.lang-en-active .lang-tr { display: none; }
@@ -169,7 +151,7 @@
                 <span class="lang-tr">Michelson İnterferometresi Düzenegi (İlkbahar 2026)</span>
             </summary>
             <div class="photo-container">
-                <img src="interferometer_setup.jpg" alt="Michelson Interferometer in Lab">
+                <img src="images/interferometer_setup.jpg" alt="Michelson Interferometer in Lab">
                 <div class="photo-description">
                     <span class="lang-en">Calibrating the optical components for the loudspeaker vibration analysis experiment at the Bilkent physics lab.</span>
                     <span class="lang-tr">Bilkent fizik laboratuvarında hoparlör titreşim analizi deneyi için optik bileşenlerin kalibrasyonu.</span>
@@ -183,7 +165,7 @@
                 <span class="lang-tr">Doğa Yürüyüşü Keşfi</span>
             </summary>
             <div class="photo-container">
-                <img src="hiking.jpg" alt="Hiking in Nature">
+                <img src="images/hiking.jpg" alt="Hiking in Nature">
                 <div class="photo-description">
                     <span class="lang-en">Testing out the compact camera's dynamic range during a weekend hike.</span>
                     <span class="lang-tr">Hafta sonu doğa yürüyüşü sırasında kompakt kameranın dinamik aralığını test ederken.</span>
@@ -197,7 +179,7 @@
                 <span class="lang-tr">Bilkent Kampüs Manzarası</span>
             </summary>
             <div class="photo-container">
-                <img src="campus.jpg" alt="Bilkent University Campus">
+                <img src="images/campus.jpg" alt="Bilkent University Campus">
                 <div class="photo-description">
                     <span class="lang-en">A quiet afternoon view from the Physics Department building.</span>
                     <span class="lang-tr">Fizik Bölümü binasından sakin bir öğleden sonra manzarası.</span>
@@ -205,12 +187,6 @@
             </div>
         </details>
 
-    </div>
-
-    <div id="visitor-container">
-        <span class="lang-en">Visitors</span>
-        <span class="lang-tr">Ziyaretçiler</span>
-        <img src="https://api.visitorbadge.io/api/visitors?path=haciberkaybuz.github.io/photos&labelColor=%23ffffff&countColor=%23000080&style=flat-square&labelStyle=none" alt="Visitor Count" border="0">
     </div>
 
     <script>
