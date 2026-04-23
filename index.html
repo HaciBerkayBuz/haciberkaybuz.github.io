@@ -45,8 +45,17 @@
             font-size: 11px;
             font-weight: bold;
         }
-        .lang-toggle a { padding: 6px 16px; border-radius: 15px; text-decoration: none; color: #555; transition: 0.2s; }
-        .lang-toggle a.active { background: #000080; color: #fff; }
+        .lang-toggle button { 
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px 16px; 
+            border-radius: 15px; 
+            color: #555; 
+            transition: 0.2s; 
+            font-weight: bold;
+        }
+        .lang-toggle button.active { background: #000080; color: #fff; }
 
         .name-part { color: #000080; text-decoration: none; }
         .name-part:hover { color: #0000FF; text-decoration: underline; }
@@ -86,28 +95,34 @@
             gap: 6px;
         }
         #visitor-container span { color: #000080; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; }
+        
+        /* Varsayılan olarak Türkçe metinleri gizle */
+        .lang-tr { display: none; }
     </style>
 </head>
 <body>
 
     <div class="lang-container">
         <div class="lang-toggle">
-            <a href="index_tr.html">TR</a>
-            <a href="index.html" class="active">EN</a>
+            <button onclick="switchLang('tr')" id="btn-tr">TR</button>
+            <button onclick="switchLang('en')" id="btn-en" class="active">EN</button>
         </div>
     </div>
 
     <img src="profil.jpg" alt="Photo of Hacı Berkay Buz" class="profile">
 
     <h1>
-        <a href="meaning.html?name=Haci&lang=en" class="name-part">Hacı</a> 
-        <a href="meaning.html?name=Berkay&lang=en" class="name-part">Berkay</a> 
-        <a href="meaning.html?name=Buz&lang=en" class="name-part">Buz</a>
+        <a href="meaning.html?name=Haci" class="name-part">Hacı</a> 
+        <a href="meaning.html?name=Berkay" class="name-part">Berkay</a> 
+        <a href="meaning.html?name=Buz" class="name-part">Buz</a>
     </h1>
 
     <p style="margin-top: 10px;">
-        <strong>Undergraduate Student</strong><br>
-        Department of Physics, Bilkent University<br>
+        <strong class="lang-en">Undergraduate Student</strong>
+        <strong class="lang-tr">Lisans Öğrencisi</strong><br>
+        
+        <span class="lang-en">Department of Physics, Bilkent University</span>
+        <span class="lang-tr">Fizik Bölümü, Bilkent Üniversitesi</span><br>
         Ankara, 06800 TURKEY
     </p>
 
@@ -122,40 +137,90 @@
 
     <div class="clear"></div> <br><hr style="border: 0; border-top: 1px solid #ccc;"><br>
 
-    <h2>Biography</h2>
+    <h2 class="lang-en">Biography</h2>
+    <h2 class="lang-tr">Biyografi</h2>
     <p>
-        I am a Physics student at Bilkent University with a strong interest in experimental and computational physics. I enjoy combining hardware and software to solve complex problems, ranging from optical setups to quantum simulations.
+        <span class="lang-en">I am a Physics student at Bilkent University with a strong interest in experimental and computational physics. I enjoy combining hardware and software to solve complex problems, ranging from optical setups to quantum simulations.</span>
+        <span class="lang-tr">Bilkent Üniversitesi'nde deneysel ve hesaplamalı fiziğe yoğun ilgi duyan bir fizik öğrencisiyim. Optik düzeneklerden kuantum simülasyonlarına kadar uzanan karmaşık problemleri çözmek için donanım ve yazılımı birleştirmekten keyif alıyorum.</span>
     </p>
 
-    <h2>Projects & Research</h2>
+    <h2 class="lang-en">Projects & Research</h2>
+    <h2 class="lang-tr">Projeler & Araştırmalar</h2>
     <ul class="project-list">
         <li>
-            <strong>Loudspeaker Interferometry:</strong> 
-            Analysis of sound vibrations using Michelson interferometer. 
-            <a href="Michelson_Interferometer.pdf" target="_blank" class="view-link">[View Report]</a>
+            <strong class="lang-en">Loudspeaker Interferometry:</strong> 
+            <strong class="lang-tr">Hoparlör İnterferometrisi:</strong> 
+            
+            <span class="lang-en">Analysis of sound vibrations using Michelson interferometer.</span>
+            <span class="lang-tr">Michelson interferometresi kullanarak ses titreşimlerinin analizi.</span>
+            
+            <a href="Michelson_Interferometer.pdf" target="_blank" class="view-link lang-en">[View Report]</a>
+            <a href="Michelson_Interferometer.pdf" target="_blank" class="view-link lang-tr">[Raporu İncele]</a>
         </li>
         <li>
-            <strong>Visible Light Spectrometer:</strong> 
-            Analysis of emission spectra using a DIY spectrometer. 
-            <a href="DIY_Spectrometer.pdf" target="_blank" class="view-link">[View Report]</a>
+            <strong class="lang-en">Visible Light Spectrometer:</strong> 
+            <strong class="lang-tr">Görünür Işık Spektrometresi:</strong> 
+            
+            <span class="lang-en">Analysis of emission spectra using a DIY spectrometer.</span>
+            <span class="lang-tr">El yapımı bir spektrometre kullanarak emisyon spektrumlarının analizi.</span>
+            
+            <a href="DIY_Spectrometer.pdf" target="_blank" class="view-link lang-en">[View Report]</a>
+            <a href="DIY_Spectrometer.pdf" target="_blank" class="view-link lang-tr">[Raporu İncele]</a>
         </li>
         <li>
-            <strong>Numerical Schrödinger:</strong> 
-            Analysis of bound states in circular potentials. 
-            <a href="2DSchröd.html" target="_blank" class="view-link">[View Notebook]</a>
+            <strong class="lang-en">Numerical Schrödinger:</strong> 
+            <strong class="lang-tr">Sayısal Schrödinger:</strong> 
+            
+            <span class="lang-en">Analysis of bound states in circular potentials.</span>
+            <span class="lang-tr">Dairesel potansiyellerdeki bağlı durumların analizi.</span>
+            
+            <a href="2DSchröd.html" target="_blank" class="view-link lang-en">[View Notebook]</a>
+            <a href="2DSchröd.html" target="_blank" class="view-link lang-tr">[Not Defterini İncele]</a>
         </li>
     </ul>
 
-    <h2>Links</h2>
-    <p><a href="https://github.com/HaciBerkayBuz" target="_blank">GitHub Profile</a></p>
+    <h2 class="lang-en">Links</h2>
+    <h2 class="lang-tr">Bağlantılar</h2>
+    <p>
+        <a href="https://github.com/HaciBerkayBuz" target="_blank" class="lang-en">GitHub Profile</a>
+        <a href="https://github.com/HaciBerkayBuz" target="_blank" class="lang-tr">GitHub Profili</a>
+    </p>
 
     <div id="visitor-container">
-        <span>Visitors</span>
+        <span class="lang-en">Visitors</span>
+        <span class="lang-tr">Ziyaretçiler</span>
         <img src="https://hitwebcounter.com/counter/counter.php?page=haciberkaybuz_physics&style=0007&nbdigits=5&type=page&initCount=0" title="Free Counter" border="0">
     </div>
 
     <br><br>
-    <small style="color:#888;">Last updated: March 2026</small>
+    <small style="color:#888;">
+        <span class="lang-en">Last updated: March 2026</span>
+        <span class="lang-tr">Son güncelleme: Mart 2026</span>
+    </small>
 
+    <script>
+        function switchLang(lang) {
+            // İlgili dile ait class'ları göster, diğerini gizle
+            let enElements = document.querySelectorAll('.lang-en');
+            let trElements = document.querySelectorAll('.lang-tr');
+
+            if (lang === 'tr') {
+                enElements.forEach(el => el.style.display = 'none');
+                // Span veya a gibi inline elementlerin yapısını bozmamak için boş string '' kullanıyoruz
+                trElements.forEach(el => el.style.display = ''); 
+                
+                document.getElementById('btn-tr').classList.add('active');
+                document.getElementById('btn-en').classList.remove('active');
+                document.documentElement.lang = 'tr';
+            } else {
+                trElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = '');
+                
+                document.getElementById('btn-en').classList.add('active');
+                document.getElementById('btn-tr').classList.remove('active');
+                document.documentElement.lang = 'en';
+            }
+        }
+    </script>
 </body>
 </html>
