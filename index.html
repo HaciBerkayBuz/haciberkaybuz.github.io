@@ -92,11 +92,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
         #visitor-container span { color: #000080; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; }
         
-        /* ÇÖZÜM BURADA: Body class'ına göre hangi dilin gizleneceğini seçiyoruz */
+        /* Body class'ına göre hangi dilin gizleneceğini seçiyoruz */
         body.lang-en-active .lang-tr { display: none; }
         body.lang-tr-active .lang-en { display: none; }
     </style>
@@ -113,9 +113,17 @@
     <img src="profil.jpg" alt="Photo of Hacı Berkay Buz" class="profile">
 
     <h1>
-        <a href="meaning.html?name=Haci" class="name-part">Hacı</a> 
-        <a href="meaning.html?name=Berkay" class="name-part">Berkay</a> 
-        <a href="meaning.html?name=Buz" class="name-part">Buz</a>
+        <span class="lang-en">
+            <a href="meaning.html?name=Haci&lang=en" class="name-part">Hacı</a> 
+            <a href="meaning.html?name=Berkay&lang=en" class="name-part">Berkay</a> 
+            <a href="meaning.html?name=Buz&lang=en" class="name-part">Buz</a>
+        </span>
+        
+        <span class="lang-tr">
+            <a href="meaning.html?name=Haci&lang=tr" class="name-part">Hacı</a> 
+            <a href="meaning.html?name=Berkay&lang=tr" class="name-part">Berkay</a> 
+            <a href="meaning.html?name=Buz&lang=tr" class="name-part">Buz</a>
+        </span>
     </h1>
 
     <p style="margin-top: 10px;">
@@ -190,7 +198,7 @@
     <div id="visitor-container">
         <span class="lang-en">Visitors</span>
         <span class="lang-tr">Ziyaretçiler</span>
-        <img src="https://hitwebcounter.com/counter/counter.php?page=haciberkaybuz_physics&style=0007&nbdigits=5&type=page&initCount=0" title="Free Counter" border="0">
+        <img src="https://api.visitorbadge.io/api/visitors?path=haciberkaybuz.github.io&labelColor=%23ffffff&countColor=%23000080&style=flat-square&labelStyle=none" alt="Visitor Count" border="0">
     </div>
 
     <br><br>
@@ -201,7 +209,6 @@
 
     <script>
         function switchLang(lang) {
-            // Sadece body etiketindeki class'ı değiştiriyoruz, CSS gerisini hallediyor!
             if (lang === 'tr') {
                 document.body.className = 'lang-tr-active';
                 
