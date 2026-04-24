@@ -108,15 +108,15 @@
         }
 
         .photo-container img {
-            max-width: 600px; /* Fotoğrafın büyüyeceği maksimum sınırı belirledik */
-            max-height: 600px; /* Fotoğrafın büyüyeceği maksimum sınırı belirledik */
-            width: 100%; /* Mobil cihazlarda ekrana sığması için */
-            height: auto;
+            max-height: 800px; /* Fotoğrafın uzunluğuna (yüksekliğine) sınır koyduk */
+            width: auto; /* Genişliği, yüksekliğe göre otomatik ayarlar (oranı korur) */
+            max-width: 100%; /* Mobil cihazlarda genişliğin ekranı taşmaması için koruma */
+            height: auto; 
             border: 1px solid #ddd;
             padding: 5px;
             background: #fff;
             box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
-            border-radius: 4px; /* İstersen köşeleri de çok hafif yuvarlatabilirsin, şık durur */
+            border-radius: 4px;
         }
 
         .photo-description {
