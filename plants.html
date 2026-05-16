@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Archive | Hacı Berkay Buz</title>
+    <meta name="robots" content="noindex, noimageindex, nofollow">
+    <style>
+        :root {
+            --color-primary: #000080;
+            --color-link: #0000FF;
+            --color-text: #1a1a1a;
+            --color-muted: #888;
+            --color-border: #ccc;
+            --color-border-soft: #eee;
+            --color-bg: #fff;
+            --color-bg-soft: #f4f4f4;
+            --font-serif: "Times New Roman", Times, serif;
+            --font-sans: Arial, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-serif);
+            max-width: 850px;
+            margin: 50px auto;
+            line-height: 1.6;
+            padding: 0 40px 100px 40px;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 5px;
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.3em;
+            color: var(--color-primary);
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 5px;
+            margin-top: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p { font-size: 1.15em; margin-bottom: 15px; }
+        a { color: var(--color-link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* --- Language toggle (same as index.html) --- */
+        .lang-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        .back-link { font-family: var(--font-sans); font-size: 12px; font-weight: bold; }
+        .lang-toggle {
+            display: inline-flex;
+            background: var(--color-bg-soft);
+            border-radius: 20px;
+            padding: 3px;
+            border: 1px solid #ddd;
+            font-family: var(--font-sans);
+            font-size: 11px;
+            font-weight: bold;
+        }
+        .lang-toggle button {
+            background: none; border: none; cursor: pointer;
+            padding: 6px 16px; border-radius: 15px;
+            color: #555; transition: 0.2s; font-weight: bold;
+        }
+        .lang-toggle button.active { background: var(--color-primary); color: #fff; }
+
+        body.lang-en-active .lang-tr { display: none; }
+        body.lang-tr-active .lang-en { display: none; }
+
+        /* --- Location selector --- */
+        .location-menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .location-btn {
+            font-family: var(--font-serif);
+            font-size: 1.1em;
+            padding: 14px 24px;
+            background: var(--color-bg);
+            color: var(--color-primary);
+            border: 1px solid var(--color-primary);
+            cursor: pointer;
+            transition: 0.2s;
+            letter-spacing: 0.5px;
+        }
+        .location-btn:hover:not(:disabled) {
+            background: var(--color-primary);
+            color: #fff;
+        }
+        .location-btn.active {
+            background: var(--color-primary);
+            color: #fff;
+        }
+        .location-btn:disabled {
+            border-color: var(--color-border);
+            color: var(--color-muted);
+            cursor: not-allowed;
+            font-style: italic;
+        }
+
+        /* --- Plant grid --- */
+        .plant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .plant-card {
+            border: 1px solid var(--color-border);
+            background: var(--color-bg);
+            padding: 8px;
+            text-align: center;
+            transition: 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .plant-card:hover {
+            border-color: var(--color-primary);
+            box-shadow: 4px 4px 0px rgba(0,0,128,0.08);
+            text-decoration: none;
+        }
+        .plant-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .plant-card .label {
+            padding: 10px 5px 5px 5px;
+            font-size: 0.95em;
+        }
+        .plant-card .label .sci {
+            display: block;
+            font-style: italic;
+            color: var(--color-muted);
+            font-size: 0.85em;
+            margin-top: 3px;
+        }
+
+        .grid-section { display: none; }
+        .grid-section.active { display: block; }
+
+        /* --- Mobile --- */
+        @media (max-width: 600px) {
+            body { margin: 20px auto; padding: 0 20px 60px 20px; }
+            h1 { font-size: 1.8em; }
+            .plant-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .plant-card img { height: 140px; }
+        }
+    </style>
+</head>
+<body class="lang-en-active">
+
+    <div class="lang-container">
+        <a href="index.html" class="back-link">
+            <span class="lang-en">← Back to Home</span>
+            <span class="lang-tr">← Ana Sayfaya Dön</span>
+        </a>
+        <div class="lang-toggle">
+            <button onclick="switchLang('tr')" id="btn-tr">TR</button>
+            <button onclick="switchLang('en')" id="btn-en" class="active">EN</button>
+        </div>
+    </div>
+
+    <h1>
+        <span class="lang-en">Plant Archive</span>
+        <span class="lang-tr">Bitki Arşivi</span>
+    </h1>
+
+    <p style="margin-top: 15px;">
+        <span class="lang-en">A personal catalogue of plants I have photographed and documented. Select a location to browse.</span>
+        <span class="lang-tr">Fotoğrafladığım ve belgelediğim bitkilerin kişisel bir kataloğu. Göz atmak için bir konum seçin.</span>
+    </p>
+
+    <!-- Location selector -->
+    <h2>
+        <span class="lang-en">Locations</span>
+        <span class="lang-tr">Konumlar</span>
+    </h2>
+    <div class="location-menu">
+        <button class="location-btn active" onclick="showLocation('bilkent')" id="loc-bilkent">
+            <span class="lang-en">Bilkent Campus</span>
+            <span class="lang-tr">Bilkent Kampüsü</span>
+        </button>
+        <button class="location-btn" disabled>
+            <span class="lang-en">Places Visited (Soon)</span>
+            <span class="lang-tr">Gezilen Yerler (Yakında)</span>
+        </button>
+    </div>
+
+    <!-- Bilkent grid -->
+    <section class="grid-section active" id="grid-bilkent">
+        <h2>
+            <span class="lang-en">Bilkent Campus</span>
+            <span class="lang-tr">Bilkent Kampüsü</span>
+        </h2>
+        <div class="plant-grid">
+            <!--
+              Plant card template — duplicate for each plant.
+              Each card opens its detail page in a new tab.
+            -->
+            <a href="plants/scots-pine.html" class="plant-card" target="_blank" rel="noopener">
+                <img src="assets/plants/bilkent/scots-pine.jpg" alt="Scots Pine">
+                <div class="label">
+                    <span class="lang-en">Scots Pine</span>
+                    <span class="lang-tr">Sarıçam</span>
+                    <span class="sci">Pinus sylvestris</span>
+                </div>
+            </a>
+
+            <a href="plants/oriental-plane.html" class="plant-card" target="_blank" rel="noopener">
+                <img src="assets/plants/bilkent/oriental-plane.jpg" alt="Oriental Plane">
+                <div class="label">
+                    <span class="lang-en">Oriental Plane</span>
+                    <span class="lang-tr">Doğu Çınarı</span>
+                    <span class="sci">Platanus orientalis</span>
+                </div>
+            </a>
+
+            <!-- Add more cards here as you photograph and document plants -->
+        </div>
+    </section>
+
+    <script>
+        // Apply saved language
+        (function() {
+            var saved = localStorage.getItem('site-lang') || 'en';
+            applyLang(saved);
+        })();
+
+        function applyLang(lang) {
+            if (lang === 'tr') {
+                document.body.className = 'lang-tr-active';
+                document.getElementById('btn-tr').classList.add('active');
+                document.getElementById('btn-en').classList.remove('active');
+                document.documentElement.lang = 'tr';
+            } else {
+                document.body.className = 'lang-en-active';
+                document.getElementById('btn-en').classList.add('active');
+                document.getElementById('btn-tr').classList.remove('active');
+                document.documentElement.lang = 'en';
+            }
+        }
+
+        function switchLang(lang) {
+            localStorage.setItem('site-lang', lang);
+            applyLang(lang);
+        }
+
+        // Location switcher (extensible for future locations)
+        function showLocation(loc) {
+            document.querySelectorAll('.grid-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.location-btn').forEach(b => b.classList.remove('active'));
+            var grid = document.getElementById('grid-' + loc);
+            var btn = document.getElementById('loc-' + loc);
+            if (grid) grid.classList.add('active');
+            if (btn) btn.classList.add('active');
+        }
+    </script>
+</body>
+</html>
