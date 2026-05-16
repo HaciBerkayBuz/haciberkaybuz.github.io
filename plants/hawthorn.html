@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hawthorn | Plant Archive</title>
+    <!-- Privacy: prevent indexing of this page and its images -->
+    <meta name="robots" content="noindex, noimageindex, nofollow">
+    <meta name="googlebot" content="noindex, noimageindex, nofollow">
+    <style>
+        :root {
+            --color-primary: #000080;
+            --color-link: #0000FF;
+            --color-text: #1a1a1a;
+            --color-muted: #888;
+            --color-border: #ccc;
+            --color-border-soft: #eee;
+            --color-bg: #fff;
+            --color-bg-soft: #f4f4f4;
+            --font-serif: "Times New Roman", Times, serif;
+            --font-sans: Arial, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-serif);
+            max-width: 850px;
+            margin: 50px auto;
+            line-height: 1.6;
+            padding: 0 40px 100px 40px;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 5px;
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.3em;
+            color: var(--color-primary);
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 5px;
+            margin-top: 35px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p { font-size: 1.15em; margin-bottom: 15px; }
+        a { color: var(--color-link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .lang-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        .back-link { font-family: var(--font-sans); font-size: 12px; font-weight: bold; }
+        .lang-toggle {
+            display: inline-flex;
+            background: var(--color-bg-soft);
+            border-radius: 20px;
+            padding: 3px;
+            border: 1px solid #ddd;
+            font-family: var(--font-sans);
+            font-size: 11px;
+            font-weight: bold;
+        }
+        .lang-toggle button {
+            background: none; border: none; cursor: pointer;
+            padding: 6px 16px; border-radius: 15px;
+            color: #555; transition: 0.2s; font-weight: bold;
+        }
+        .lang-toggle button.active { background: var(--color-primary); color: #fff; }
+
+        body.lang-en-active .lang-tr { display: none; }
+        body.lang-tr-active .lang-en { display: none; }
+
+        /* --- Plant photo with toggle --- */
+        .plant-photo-wrap {
+            position: relative;
+            margin: 20px 0 10px 0;
+            border: 1px solid var(--color-border);
+            padding: 5px;
+            background: var(--color-bg);
+            cursor: pointer;
+            user-select: none;
+        }
+        .plant-photo-wrap img {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: opacity 0.25s ease;
+        }
+        .plant-photo-wrap img.alt-photo {
+            position: absolute;
+            top: 5px; left: 5px;
+            width: calc(100% - 10px);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .plant-photo-wrap.show-me img.main-photo { opacity: 0; }
+        .plant-photo-wrap.show-me img.alt-photo  { opacity: 1; }
+
+        .photo-hint {
+            display: block;
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 11px;
+            color: var(--color-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        /* --- Taxonomic data table --- */
+        .taxonomy {
+            font-family: var(--font-serif);
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+        .taxonomy dt {
+            font-weight: bold;
+            color: var(--color-primary);
+            margin-top: 8px;
+        }
+        .taxonomy dd { margin-left: 0; margin-bottom: 4px; }
+        .taxonomy .sci { font-style: italic; }
+
+        @media (max-width: 600px) {
+            body { margin: 20px auto; padding: 0 20px 60px 20px; }
+            h1 { font-size: 1.7em; }
+        }
+    </style>
+</head>
+<body class="lang-en-active">
+
+    <div class="lang-container">
+        <a href="../plants.html" class="back-link">
+            <span class="lang-en">← Back to Archive</span>
+            <span class="lang-tr">← Arşive Dön</span>
+        </a>
+        <div class="lang-toggle">
+            <button onclick="switchLang('tr')" id="btn-tr">TR</button>
+            <button onclick="switchLang('en')" id="btn-en" class="active">EN</button>
+        </div>
+    </div>
+
+    <h1>
+        <span class="lang-en">Hawthorn</span>
+        <span class="lang-tr">Yemişen</span>
+    </h1>
+
+    <!-- Click to toggle between plant photo and "me with plant" photo -->
+    <div class="plant-photo-wrap" id="photoWrap" onclick="togglePhoto()">
+        <img class="main-photo" src="../assets/plants/bilkent/hawthorn.JPG" alt="Hawthorn">
+        <img class="alt-photo"  src="../assets/plants/bilkent/hawthorn_with_me.JPG" alt="With the plant">
+    </div>
+    <small class="photo-hint">
+        <span class="lang-en">Click photo to toggle</span>
+        <span class="lang-tr">Fotoğrafa tıklayarak değiştirin</span>
+    </small>
+
+    <h2>
+        <span class="lang-en">Taxonomy</span>
+        <span class="lang-tr">Taksonomi</span>
+    </h2>
+    <dl class="taxonomy">
+        <dt><span class="lang-en">Scientific Name</span><span class="lang-tr">Bilimsel Ad</span></dt>
+        <dd class="sci">Crataegus monogyna</dd>
+
+        <dt><span class="lang-en">Family</span><span class="lang-tr">Familya</span></dt>
+        <dd>Rosaceae</dd>
+    </dl>
+
+    <h2>
+        <span class="lang-en">Characteristics</span>
+        <span class="lang-tr">Özellikleri</span>
+    </h2>
+    <p>
+        <span class="lang-en">These are trees that can grow up to 10 meters tall. They are thorny. They flower between April and June and produce red, spherical fruits. They are widespread across almost every region of Türkiye.</span>
+        <span class="lang-tr">10 metreye kadar boylanan ağaçlardır. Dikenlidirler. Nisan-Haziran aylarında çiçeklenir ve kırmızı küremsi meyveleri vardır. Ülkemizin hemen her bölgesine yayılmıştır.</span>
+    </p>
+
+    <h2>
+        <span class="lang-en">Where to Find on Campus?</span>
+        <span class="lang-tr">Kampüste Nerede Bulunur?</span>
+    </h2>
+    <p>
+        <span class="lang-en">There are many of them along the edges of the grass area on the East Campus. In addition, they can be seen in many places around the campus as well.</span>
+        <span class="lang-tr">Doğu kampüs çim alanda kenarlarda çokça vardır. Bunun yanı sıra kampüsün etrafında pek çok yerde görmek mümkündür.</span>
+    </p>
+
+    <script>
+        // Language persistence
+        (function() {
+            var saved = localStorage.getItem('site-lang') || 'en';
+            applyLang(saved);
+        })();
+
+        function applyLang(lang) {
+            if (lang === 'tr') {
+                document.body.className = 'lang-tr-active';
+                document.getElementById('btn-tr').classList.add('active');
+                document.getElementById('btn-en').classList.remove('active');
+                document.documentElement.lang = 'tr';
+            } else {
+                document.body.className = 'lang-en-active';
+                document.getElementById('btn-en').classList.add('active');
+                document.getElementById('btn-tr').classList.remove('active');
+                document.documentElement.lang = 'en';
+            }
+        }
+        function switchLang(lang) {
+            localStorage.setItem('site-lang', lang);
+            applyLang(lang);
+        }
+
+        // Photo toggle
+        function togglePhoto() {
+            document.getElementById('photoWrap').classList.toggle('show-me');
+        }
+    </script>
+</body>
+</html>
